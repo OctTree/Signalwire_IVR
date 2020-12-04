@@ -2,10 +2,10 @@ const express = require("express");
 const { RestClient } = require('@signalwire/node')
 
 // get environment variables ////
-const DOMAIN = '640c7645e6c8.ngrok.io'// the domain the app is deployed at
+const DOMAIN = '3.88.217.29:5000'// the domain the app is deployed at
 // methods should be in a different file in production /
 function formatUrl(action, querystring = '') {
-  return "https://" + DOMAIN + "/" + action + querystring;
+  return "http://" + DOMAIN + "/" + action + querystring;
 }
 
 function respondAndLog(res, response) {
@@ -30,7 +30,7 @@ app.get("/status", (req, res, next) => {
 app.post("/entry", (req, res, next) => {
   var response = new RestClient.LaML.VoiceResponse();
   gather = response.gather({ timeout: 5, numDigits: 1, action: formatUrl('mainmenu') })
-  gather.play({loop: 2}, 'https://640c7645e6c8.ngrok.io/stream/Health_IVR.mp3')
+  gather.play({loop: 2}, 'http://3.88.217.29:5000/stream/Health_IVR.mp3')
   respondAndLog(res, response);
  });
 
