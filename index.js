@@ -36,7 +36,7 @@ app.get("/status", (req, res, next) => {
 app.post("/entry", (req, res, next) => {
   var response = new RestClient.LaML.VoiceResponse();
   gather = response.gather({ timeout: 5, numDigits: 1, action: formatUrl('mainmenu') })
-  gather.play({ loop: 2 }, 'https://c431c7438eec.ngrok.io/stream/Health_IVR.mp3')
+  gather.play({ loop: 2 }, `http://${DOMAIN}/stream/Health_IVR.mp3`)
   respondAndLog(res, response);
 });
 
