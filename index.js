@@ -41,7 +41,7 @@ app.post("/mainmenu", (req, res, next) => {
   switch (req.body.Digits) {
     case "1":
       dial = response.dial({timeout: 20});
-      dial.number('+16299999319');
+      dial.number('+17867891610');
       break;
     case "2":
       dial = response.dial({timeout: 20, action: formatUrl('hangup')});
