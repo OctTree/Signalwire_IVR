@@ -6,7 +6,7 @@ const { RestClient } = require('@signalwire/node')
 const DOMAIN = process.env.DOMAIN;
 // methods should be in a different file in production /
 function formatUrl(action, querystring = '') {
-  return "https://" + DOMAIN + "/" + action + querystring;
+  return "http://" + DOMAIN + "/" + action + querystring;
 }
 
 function respondAndLog(res, response) {
