@@ -6,7 +6,7 @@ const { RestClient } = require('@signalwire/node')
 const DOMAIN = process.env.DOMAIN;
 // methods should be in a different file in production /
 function formatUrl(action, querystring = '') {
-  return "http://" + DOMAIN + "/" + action + querystring;
+  return "https://" + DOMAIN + "/" + action + querystring;
 }
 
 function respondAndLog(res, response) {
@@ -36,7 +36,7 @@ app.get("/status", (req, res, next) => {
 app.post("/entry", (req, res, next) => {
   var response = new RestClient.LaML.VoiceResponse();
   gather = response.gather({ timeout: 5, numDigits: 1, action: formatUrl('mainmenu') })
-  gather.play({ loop: 2 }, `http://${DOMAIN}/stream/Health_IVR_01.mp3`)
+  gather.play({ loop: 2 }, `https://${DOMAIN}/stream/Health_IVR_01.mp3`)
   respondAndLog(res, response);
 });
 
